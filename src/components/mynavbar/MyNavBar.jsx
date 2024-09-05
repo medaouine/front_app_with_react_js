@@ -66,9 +66,11 @@ function MyNavBar() {
 
       if (response.status === 200 && response.data.message === "success") {
         console.log('Logout response:', response.data.message);
+
+        
        localStorage.removeItem('accessToken');
        localStorage.removeItem('refreshToken');
-       localStorage.removeItem(' isAuthenticated');
+       localStorage.removeItem('isAuthenticated');
        localStorage.removeItem('refreshToken');
        localStorage.removeItem('name');
        localStorage.removeItem('email');
@@ -79,7 +81,7 @@ function MyNavBar() {
        //window.location.reload();
         
         console.log('Logout successful. Redirecting to login.');
-        navigate('/login');
+        navigate('/');
       } else {
         console.error('Unexpected response:', response.data);
      
