@@ -16,34 +16,25 @@ import {
 } from './cartSlice'; 
 
 function App() {
+
   const isLoggedin = useSelector((state) => state.isLogged);
   const dispatch = useDispatch();
 
-  let isAuthenticated= localStorage.getItem('isAuthenticated') === "yes";
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated') === "yes";
+    dispatch(isAuthenticated ? setIsLoggedinToTrue() : setIsLoggedinToFalse());
+  }, [dispatch]);
+
 
   
-
-  if(isAuthenticated){
-    dispatch(setIsLoggedinToTrue());
-    setIsLoggedinToTrue
-  }else{
-    dispatch(setIsLoggedinToFalse()); 
-  }
-
-  console.log ("isAuthenticated",isAuthenticated);
-  console.log ("isLoggedin from redux ",isLoggedin);
-
-
-
-
   return (
     <Router>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<RedirectAuthenticated element={<Login />} isAuthenticated={isAuthenticated} />} />
-          <Route path="/register" element={<RedirectAuthenticated element={<Register />} isAuthenticated={isAuthenticated} />} />
-          <Route path="/products" element={<ProtectedRoute element={<Product />} isAuthenticated={isAuthenticated} />} />
-          <Route path="/cart" element={<ProtectedRoute element={<Cart />} isAuthenticated={isAuthenticated} />} />
+          <Route path="/" element={<RedirectAuthenticated element={<Login />} isAuthenticated={isLoggedin} />} />
+          <Route path="/register" element={<RedirectAuthenticated element={<Register />} isAuthenticated={isLoggedin} />} />
+          <Route path="/products" element={<ProtectedRoute element={<Product />} isAuthenticated={isLoggedin} />} />
+          <Route path="/cart" element={<ProtectedRoute element={<Cart />} isAuthenticated={isLoggedin} />} />
         </Route>
       </Routes>
     </Router>
