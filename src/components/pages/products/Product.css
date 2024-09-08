@@ -49,3 +49,17 @@
 .add-to-cart:hover {
   background-color: #0056b3;
 }
+.no-products-message {
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+  margin: 0; 
+  font-weight: 500;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Full width */
+ /* Optional: Maximum width to prevent stretching too much */
+  box-sizing: border-box; /* Ensure padding and border are included in the width */
+}

@@ -1,0 +1,286 @@
+.product-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100px; 
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.product-card .product-image {
+  flex: 1;
+  height: 80px; 
+  width: 60px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+}
+
+.product-card .product-image img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+.product-card .product-details {
+  flex: 6;
+  display: flex; 
+  justify-content: center; 
+
+
+}
+
+.product-card .product-actions {
+  flex: 8;
+  display: flex;
+  gap: 10px;
+  margin-left: auto; 
+  justify-content: flex-end; 
+}
+
+.product-info {
+  font-family: 'Arial', sans-serif; 
+  color: #333; 
+  gap: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.product-info h4 {
+  font-size: 1.5rem; 
+  margin: 0; 
+}
+
+.product-info h5 {
+  font-size: 1.2rem; 
+  margin: 20px 0 0 0; 
+}
+
+.add-product-button {
+  width: 100%; /* Stretches the button to full width of parent */
+  padding: 10px; /* Adds space inside the button */
+  font-size: 1rem; /* Adjust font size as needed */
+  font-family: 'Arial', sans-serif; /* Use a nice, readable font */
+  color: #fff; /* White text color */
+  background-color: #00ffbf; /* Blue background color */
+  border: none; /* Removes default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+  text-align: center; /* Center align text */
+
+  margin-bottom: 20px;
+}
+
+.add-product-button:hover {
+  background-color: #73b879; /* Darker blue on hover */
+}
+
+.add-product-button:focus {
+  outline: none; /* Removes default focus outline */
+  box-shadow: 0 0 0 3px rgba(57, 156, 18, 0.5); /* Custom focus outline */
+}
+
+
+/* Button Styles */
+.view-button, .update-button, .delete-button {
+  background-color: #007bff; /* Default button color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s;
+  display: inline-block;
+  text-align: center;
+}
+
+.view-button {
+  background-color: #17a2b8; /* Different color for view button */
+}
+
+.update-button {
+  background-color: #ffc107; /* Different color for update button */
+}
+
+.delete-button {
+  background-color: #dc3545; /* Different color for delete button */
+}
+
+.view-button:hover {
+  background-color: #13919d; /* Darker shade for hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.update-button:hover {
+  background-color: #e0a800; /* Darker shade for hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.delete-button:hover {
+  background-color: #c82333; /* Darker shade for hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.view-button:focus, .update-button:focus, .delete-button:focus {
+  outline: none; /* Remove default outline */
+}
+
+.view-button:active, .update-button:active, .delete-button:active {
+  transform: scale(0.98); /* Slightly shrink when clicked */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Modal styles */.modal {
+  position: absolute;
+  padding: 10px;
+  border-radius: 8px;
+  height: 60%;
+  width: 50%;
+  top: 10%;
+  left: calc(50% + 100px); /* Centering with 250px offset to the right */
+  transform: translateX(-50%); /* Adjust for centering */
+  background-color: white;
+  overflow-y: auto;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.close-button {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input-row label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-row input {
+  height: 40px; 
+  margin-top: 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.image-thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.image-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edit-image-button, .delete-image-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-image-button:hover, .delete-image-button:hover {
+  background-color: #0056b3;
+}
+
+.cancel-button, .confirm-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cancel-button:hover, .confirm-button:hover {
+  background-color: #0056b3;
+}
+
+
+.modal-content {
+  padding: 10px;
+  background-color: #fff;
+}
+
+.view-content {
+  padding: 10px;
+}
+
+.image-thumbnail {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-data {
+  font-size: 1rem;
+  color: #333;
+  margin: 5px 0;
+}
+
+.label-text {
+  font-weight: bold;
+  color: #555;
+}
+
+.ok-button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.ok-button:hover {
+  background-color: darkgreen;
+}

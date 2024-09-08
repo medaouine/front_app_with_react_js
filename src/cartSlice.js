@@ -1,19 +1,12 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import productList from './productList';
-
 
 const initialState = {
-
   loading:false,
-  loading_menu:false,
-
   isLogged: false,
-  permissions:{},
   products:[],
   shoppingCart: [],
   grandTotal: 0,
-  userPrompt:""
 };
 
 
@@ -22,6 +15,9 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+
+
+    
 
     setIsLoggedinToTrue: (state) => {
       state.isLogged = true;
@@ -140,6 +136,13 @@ const cartSlice = createSlice({
       }
       state.grandTotal = state.shoppingCart.reduce((acc, item) => acc + item.totalPrice, 0);
     },
+    addProduct: (state, action) => {
+      const newProducts = action.payload;
+      state.products = newProducts;
+    },
+    
+  
+  
 
   },
 
@@ -158,7 +161,8 @@ export const {
    removeFromcart,
    removeFromcartByID,
    addTocartByProductandQtyV2,
-   clearShoppingCart
+   clearShoppingCart,
+   addProduct
    } = cartSlice.actions;
 
 

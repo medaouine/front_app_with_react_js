@@ -4,12 +4,15 @@ import { NavLink } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import './MyNavBar.css';
+import useLogout from '../../hooks/useLogout';
 import {
   setIsLoggedinToTrue,
   setIsLoggedinToFalse,
 } from './../../cartSlice'; 
 
+
 function MyNavBar() {
+  const { axiosInstance } =useLogout();
   const dispatch = useDispatch();
   const cartItemCount = useSelector((state) => state.shoppingCart.length);
   const grandTotal = useSelector((state) => state.grandTotal);
@@ -33,76 +36,51 @@ function MyNavBar() {
 
 
 
+
+
   const handleLogout = async () => {
+    const refreshToken = localStorage.getItem('refreshToken');
     try {
-
-
-      const refreshToken = localStorage.getItem('refreshToken');
-      console.log("Stored refresh token from local storage:", refreshToken);
-  
-      if (!refreshToken) {
-        console.error('No refresh token found. Redirecting to login.');
-        navigate('/');
-        return;
-      }
-  
-  
-      console.log('Sending logout request...');
-      const response = await axios.delete('http://127.0.0.1:4000/logout', {
-        data: { token: refreshToken }, 
+    
+      const response = await axiosInstance.delete('http://127.0.0.1:4000/logout', {
+        data: { token: refreshToken },
       });
-  
 
-      if (response.status === 401 && response.data.message === "Token_expired") {
 
-        console.log('Logout response:', response.data.message);
-  
-      
-     
-       
-        
-      
-      }
 
       if (response.status === 200 && response.data.message === "success") {
         console.log('Logout response:', response.data.message);
 
-        
-       localStorage.removeItem('accessToken');
-       localStorage.removeItem('refreshToken');
-       localStorage.removeItem('isAuthenticated');
-       localStorage.removeItem('refreshToken');
-       localStorage.removeItem('name');
-       localStorage.removeItem('email');
-       localStorage.removeItem('role');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        localStorage.removeItem('isAuthenticated');
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        localStorage.removeItem('role');
 
-      // dispatch(setIsLoggedinToTrue());
-       dispatch(setIsLoggedinToFalse()); 
-       //window.location.reload();
-        
+         dispatch(setIsLoggedinToFalse());
         console.log('Logout successful. Redirecting to login.');
         navigate('/');
       } else {
         console.error('Unexpected response:', response.data);
-     
       }
+   
+
+   
+
+
+
+
+
+
+
+
+
+
     } catch (error) {
       console.error('Logout failed:', error);
-
     }
   };
-
-
-
-
-
-
-
-
-
-
-
-
 
   return (
     <header className="navbar">

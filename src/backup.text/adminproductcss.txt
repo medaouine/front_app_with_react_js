@@ -1,0 +1,134 @@
+/* Container for the product list */
+.admin-product-container {
+  padding: 20px;
+  width: 100%; /* Ensures the container stretches full width */
+  box-sizing: border-box; /* Includes padding in the width calculation */
+}
+
+/* Button to add a product */
+.add-product-button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #4fa94d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Container for product cards */
+.product-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Styling for individual product cards */
+.product-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Aligns items and stretches the card to full width */
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  width: 100%;
+  box-sizing: border-box; /* Ensures padding and border are included in the width */
+}
+
+/* Image styling */
+.product-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px; /* Rounded corners for images */
+  margin-left: 20px;
+}
+
+/* Product details section */
+.product-details {
+  flex: 1; /* Takes up remaining space */
+}
+
+/* Actions section */
+.product-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Buttons for actions */
+.view-button, .update-button, .delete-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.view-button {
+  background-color: #007bff; /* Blue */
+}
+
+.update-button {
+  background-color: #28a745; /* Green */
+}
+
+.delete-button {
+  background-color: #dc3545; /* Red */
+}
+
+/* Modal styling */
+.modal {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Modal header styling */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* Modal body styling */
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Modal footer styling */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Styling for buttons inside the modal */
+.modal-footer button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-footer .cancel-button {
+  background-color: #6c757d; /* Gray */
+  color: white;
+}
+
+.modal-footer .confirm-button {
+  background-color: #007bff; /* Blue */
+  color: white;
+}
+
+.modal-image {
+  max-width: 100%;
+  height: auto;
+}

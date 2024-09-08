@@ -1,37 +1,26 @@
 import React, { useEffect, useState ,useNavigate} from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
-import { addTocart } from './../../../cartSlice'; 
+import { addProduct ,addTocart} from './../../../cartSlice'; 
 import './Product.css';
+import useApi from '../../../hooks/useApi';
+import { Circles } from 'react-loader-spinner';
 
 function Product() {
-  const dispatch = useDispatch();
-  const [products, setProducts] = useState([]);
 
+  const { axiosInstance, error } = useApi();
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.products);
+  const isLoading = useSelector((state) => state.products.loading); 
 
   const getProducts = async () => {
     try {
-      const accessToken = localStorage.getItem('accessToken');
-      
-      if (!accessToken) {
-        console.warn('No access token found in localStorage.');
-        return;
-      }
+      const response = await axiosInstance.get('products');
 
-      const apiUrl = 'http://127.0.0.1:3000/admins/products';
-      console.log('Sending GET request to:', apiUrl);
+     // setProducts(response.data);
+      dispatch(addProduct(response.data)); 
 
-      const response = await axios.get(apiUrl, {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`
-        }
-      });
-
-      console.log('Full response from getProducts:', response);
-      console.log('Response data =============================:', response.data);
-
-     
-      setProducts(response.data);
+      console.log('Redux products ==:',cartItems);
 
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -41,6 +30,8 @@ function Product() {
 
   useEffect(() => {
     getProducts();
+
+  
   }, []);
 
   const handleAddToCart = (product) => {
@@ -72,24 +63,30 @@ function Product() {
 
    dispatch(addTocart(productParsed )); 
   };
-
   return (
     <div className="product-container">
-      {products.length === 0 ? (
-        <p>No products available</p>
+      {isLoading ? (
+        <div className="loader-container">
+          <Circles
+            height="100"
+            width="100"
+            color="#4fa94d"
+            ariaLabel="circles-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
+        </div>
+      ) : cartItems.length == 0 ? (
+        <p className="no-products-message">No products Found</p>
       ) : (
-        products.map((item) => (
+        cartItems.map((item) => (
           <div key={item.id} className="product-card">
-
-
-
-             <img 
+            <img 
               src={`http://localhost:3000${item.image}`} 
               alt={item.name} 
               className="product-image" 
-             />
-
-
+            />
             <div className="product-details">
               <h3>{item.name}</h3>
               <p>Price: ${item.price}</p>
