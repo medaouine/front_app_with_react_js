@@ -47,6 +47,8 @@ function App() {
           <Route path="/register" element={<RedirectAuthenticated element={<Register />} isAuthenticated={isLoggedin}  role= {role}/>} />
           <Route path="/forgetpassword" element={<RedirectAuthenticated element={<ForgetPassword/>} isAuthenticated={isLoggedin}  role= {role}/>} />
           <Route path="/resetpassword" element={<RedirectAuthenticated element={<ResetPassword />} isAuthenticated={isLoggedin} role= {role} />} />
+         
+         
           <Route path="/products" element={<ProtectedRoute element={<Product />} isAuthenticated={isLoggedin} role={role}  requiredRole ="user"  />} />
           <Route path="/cart" element={<ProtectedRoute element={<Cart />} isAuthenticated={isLoggedin}  role={role}    requiredRole ="user" />} />      
         </Route>

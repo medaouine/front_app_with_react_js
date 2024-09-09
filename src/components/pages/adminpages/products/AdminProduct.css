@@ -61,17 +61,17 @@
 }
 
 .add-product-button {
-  width: 100%; /* Stretches the button to full width of parent */
-  padding: 10px; /* Adds space inside the button */
-  font-size: 1rem; /* Adjust font size as needed */
-  font-family: 'Arial', sans-serif; /* Use a nice, readable font */
-  color: #fff; /* White text color */
-  background-color: #00ffbf; /* Blue background color */
-  border: none; /* Removes default border */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
-  text-align: center; /* Center align text */
+  width: 100%; 
+  padding: 10px; 
+  font-size: 1rem;
+  font-family: 'Arial', sans-serif; 
+  color: #fff; 
+  background-color: #00ffbf; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s, box-shadow 0.3s; 
+  text-align: center; 
 
   margin-bottom: 20px;
 }
@@ -283,4 +283,208 @@
 
 .ok-button:hover {
   background-color: darkgreen;
+}
+
+
+
+/* Product.css */
+
+/* Admin view styling */
+.admin_view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: transparent; /* No background color */
+  max-width: 400px; /* Adjust as needed */
+  margin: 20px auto; /* Center the content horizontally */
+}
+
+.admin_image-thumbnail {
+  width: 180px; /* Fixed width */
+  height: 100px; /* Fixed height */
+  object-fit: contain; /* Ensure the entire image is visible */
+  margin-bottom: 16px; /* Space between image and text */
+}
+
+.admin_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.admin_form-data {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+.admin_label-text {
+  color: red; /* Red color for titles */
+  font-weight: bold;
+}
+
+.admin_form-data strong {
+  color: black; /* Bold and black for data */
+}
+
+.admin_ok-button {
+  background-color: #007bff; /* Blue button background */
+  border: none; /* No border */
+  color: white; /* White text */
+  padding: 10px 20px; /* Button padding */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 16px; /* Space above the button */
+}
+
+.admin_ok-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* edittinnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnng */
+
+/* Product.css */
+
+/* Form container styling */
+.admin_modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Ensure form items stretch to full width */
+  padding: 16px;
+  background-color: transparent; /* No background */
+  border: none; /* No border */
+  box-shadow: none; /* No shadow */
+}
+
+/* Input row styling */
+.admin_input-row {
+  margin-bottom: 20px; /* Space between input rows */
+}
+
+/* Label styling */
+.admin_input-row label {
+  display: block;
+  font-size: 1rem; /* Font size for labels */
+  margin-bottom: 8px; /* Space below labels */
+  color: #333; /* Dark color for labels for better readability */
+  font-weight: bold; /* Bold font for labels */
+}
+
+/* Input field styling */
+.admin_input-field {
+  width: 100%; /* Full width for inputs */
+  padding: 10px; /* Padding inside input fields */
+  border: 1px solid #ccc; /* Light border for inputs */
+  border-radius: 4px; /* Rounded corners */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  font-size: 1rem; /* Font size inside input fields */
+  outline: none; /* Remove default focus outline */
+  transition: border-color 0.2s ease; /* Smooth transition for border color */
+}
+
+.admin_input-field:focus {
+  border-color: #007bff; /* Change border color on focus */
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5); /* Add subtle focus shadow */
+}
+
+/* Image preview and placeholder styling */
+.admin_image-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin_image-thumbnail {
+  width: 180px; /* Thumbnail size */
+  height: 100px; /* Thumbnail size */
+  object-fit: contain; /* Ensure the entire image is visible */
+  margin-bottom: 8px; /* Space between image and buttons */
+}
+
+.admin_image-placeholder {
+  width: 180px; /* Placeholder size */
+  height: 100px; /* Placeholder size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  color: #888; /* Placeholder text color */
+}
+
+/* Image buttons styling */
+.admin_image-buttons {
+  display: flex;
+  gap: 8px; /* Space between image buttons */
+  margin-bottom: 16px; /* Space below image buttons */
+}
+
+.admin_edit-image-button,
+.admin_delete-image-button,
+.admin_confirm-button,
+.admin_cancel-button {
+  width: 100px; /* Fixed width for all buttons */
+  padding: 10px; /* Padding inside buttons */
+  border-radius: 4px; /* Rounded corners */
+  border: none; /* No border */
+  color: white; /* Text color */
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
+.admin_edit-image-button {
+  background-color: #ffc107; /* Yellow background for edit button */
+}
+
+.admin_edit-image-button:hover {
+  background-color: #e0a800; /* Darker yellow on hover */
+}
+
+.admin_delete-image-button {
+  background-color: #dc3545; /* Red background for delete button */
+}
+
+.admin_delete-image-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+.admin_confirm-button {
+  background-color: #28a745; 
+}
+
+.admin_confirm-button:hover {
+  background-color: #218838; 
+}
+
+.admin_cancel-button {
+  background-color: #007bff; 
+}
+
+.admin_cancel-button:hover {
+  background-color: #0056b3; 
+}
+
+
+.admin_modal-footer {
+  display: flex;
+  justify-content: center; 
+  gap: 16px; 
+  margin-top: 16px;
 }
